@@ -14,5 +14,6 @@ class ResultsSerializer(serializers.ModelSerializer):
             "in_candle",
             "settings",
             "date_added",
+            "config",
             "get_absolute_points"
         )

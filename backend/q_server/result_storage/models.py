@@ -16,6 +16,7 @@ class Result(models.Model):
     settings = models.CharField(max_length=500)
     date_added = models.DateTimeField(auto_now_add=True)
     day_count = models.FloatField()
+    config = models.CharField(max_length=800,  default='noconfig')
 
     class Meta:
         ordering = ('-percent',)
