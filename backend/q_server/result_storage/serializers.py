@@ -9,6 +9,7 @@ class ResultsSerializer(serializers.ModelSerializer):
         fields = (
             "id",
             "sum",
+            "day_count",
             "percent",
             "in_candle",
             "settings",

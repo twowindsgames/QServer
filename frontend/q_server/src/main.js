@@ -6,7 +6,7 @@ import axios from 'axios'
 import {Quasar} from 'quasar'
 import quasarUserOptions from './quasar-user-options'
 
-axios.defaults.baseURL = 'http://194.87.93.109:8000'
+axios.defaults.baseURL = 'http://194.87.254.193:8000'
 
 
 createApp(App).use(Quasar, quasarUserOptions).use(store).use(router, axios).mount('#app')
