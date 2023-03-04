@@ -68,7 +68,7 @@ mounted() {
     },
       detailDelete(id) {
       axios
-          .delete('/api/storage/detail',{params: {id: id},})
+          .delete('/api/storage/detail',{params: {result_id: id},})
           .then(response => {
             console.log(response);
 

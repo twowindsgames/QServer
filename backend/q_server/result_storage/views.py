@@ -29,9 +29,9 @@ class ResultsListView(APIView):
 
 class ResultsDetailView(APIView):
     def delete( self, request ):
-        request.query_params.get('id', None)
+        result_id= request.query_params.get('result_id', None)
         try:
-            results_data = Result.objects.get(id=id)
+            results_data = Result.objects.get(id=result_id)
             results_data.delete()
             return Response("delete")
         except Result.DoesNotExist:
