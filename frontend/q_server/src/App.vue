@@ -13,7 +13,7 @@
         />
 
         <q-toolbar-title >
-          Storage
+          Storage v1.001
         </q-toolbar-title>
 
         <div>Quasar v{{ $q.version }}</div>
