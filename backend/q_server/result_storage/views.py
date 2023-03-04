@@ -22,7 +22,8 @@ class ResultsListView(APIView):
         return save_data(serialize_data)
 
     def delete( self, request ):
-        results_data = Result.objects.all()
+        #results_data = Result.objects.all()
+        results_data = Result.objects.filter(config="noconfig")
         results_data.delete()
         return Response("all delete")
 
