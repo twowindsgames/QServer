@@ -1,7 +1,7 @@
 <template>
   <div class="home  "
  >
-   
+    <div>Storage</div>
  <q-btn
           flat
           dense
