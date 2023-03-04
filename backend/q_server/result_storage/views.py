@@ -9,7 +9,8 @@ from .serializers import *
 
 class ResultsListView(APIView):
     def get(self, request):
-        results_data = Result.objects.all()
+        #results_data = Result.objects.all()
+        results_data = Result.objects.order_by(F('sum') * F('percent'))
         serializer = ResultsSerializer(results_data,  many=True)
         return Response(serializer.data)
 

@@ -21,4 +21,4 @@ class Result(models.Model):
         ordering = ('-percent',)
 
     def get_absolute_points( self ):
-        return self.percent * self.percent * math.sqrt(self.in_candle) * math.sqrt(self.sum) / self.day_count
+        return self.percent * self.sum
