@@ -1,3 +1,4 @@
+from django.http import Http404
 from django.shortcuts import render
 from rest_framework.parsers import JSONParser
 from rest_framework.views import APIView
@@ -25,6 +26,17 @@ class ResultsListView(APIView):
         results_data = Result.objects.all()
         results_data.delete()
         return Response("all delete")
+
+class ResultsDetailView(APIView):
+    def delete( self, request ):
+        request.query_params.get('id', None)
+        try:
+            results_data = Result.objects.get(id=id)
+            results_data.delete()
+            return Response("delete")
+        except Result.DoesNotExist:
+            raise Http404
+
 
 def save_data(serialize_data):
     if serialize_data.is_valid():

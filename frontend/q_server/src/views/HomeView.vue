@@ -13,6 +13,14 @@
       <q-list  v-for="result in results" v-bind:key="result.id" >
       <q-item clickable    >
      <b >{{result.get_absolute_points}}:  {{result.percent}}%  {{result.sum}} SET:</b> {{result.settings}}
+         <q-btn
+          flat
+          dense
+          round
+          @click="detailDelete(result.id)"
+          aria-label="Menu"
+          icon="delete"
+        />
       </q-item>
     </q-list>
   </div>
@@ -50,6 +58,17 @@ mounted() {
       allDelete() {
       axios
           .delete('/api/storage/results')
+          .then(response => {
+            console.log(response);
+
+          })
+          .catch(error => {
+            console.log(error);
+          })
+    },
+      detailDelete(id) {
+      axios
+          .delete('/api/storage/detail',{params: {id: id},})
           .then(response => {
             console.log(response);
 
