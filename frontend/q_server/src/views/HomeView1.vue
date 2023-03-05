@@ -14,8 +14,8 @@
       <q-item clickable    >
 
         <b>{{result.get_absolute_points}}:  {{result.percent}}%  {{result.sum}} SET: {{result.settings}}</b>
-        <em> ds: {{result.day_count}} </em >
-        <b> id:{{result.config1}},  {{result.config2}},  {{result.config3}}</b>
+        <em>_ds: {{result.day_count}}</em >
+        <b>_id:{{result.config1}},  {{result.config2}},  {{result.config3}}</b>
 
 
       </q-item>
