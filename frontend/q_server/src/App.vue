@@ -7,8 +7,7 @@
 
         <q-toolbar-title >
           Qui Demo v1.001
-        </q-toolbar-title>
-    <q-btn
+           <q-btn
           flat
           dense
           :to="'/storage' "
@@ -31,6 +30,8 @@
         >
 
         </q-btn>
+        </q-toolbar-title>
+
         <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
     </q-header>
