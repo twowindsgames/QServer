@@ -10,10 +10,32 @@
           @click="leftDrawerOpen = !leftDrawerOpen"
           aria-label="Menu"
           icon="menu"
-        />
+        >
+          <router-link top side :to="'/storage' " style="flex: max-content"/>
+        </q-btn>
+
+        <q-btn
+          flat
+          dense
+          round
+          @click="leftDrawerOpen = !leftDrawerOpen"
+          aria-label="Menu"
+          icon="menu"
+        >
+          <router-link top side :to="'/storage/mix' " style="flex: max-content"/>
+        </q-btn>
 
         <q-toolbar-title >
           Storage v1.001
+           <q-btn
+          flat
+          dense
+          round
+
+          label="Stor"
+          @click="leftDrawerOpen = !leftDrawerOpen"
+          aria-label="Menu"
+        />
         </q-toolbar-title>
 
         <div>Quasar v{{ $q.version }}</div>
