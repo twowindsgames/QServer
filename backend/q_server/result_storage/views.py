@@ -44,7 +44,8 @@ class ResultsDetailView(APIView):
 
 class MixResultsListView(APIView):
     def get(self, request):
-        results_data = MixResult.objects.order_by(F('percent') + F('in_candle') / 300/F('day_count') ).reverse()
+        #results_data = MixResult.objects.order_by(F('percent') + F('in_candle') / 300/F('day_count') ).reverse()
+        results_data = MixResult.objects.order_by(F('percent') * Sqrt(F('sum')) / F('day_count')).reverse()
         results_data = results_data[ 0:100 ]
         serializer = MixResultsSerializer(results_data,  many=True)
         return Response(serializer.data)
