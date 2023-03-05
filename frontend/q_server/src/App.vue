@@ -3,16 +3,21 @@
     <q-header elevated  class="glossy bg-blue-grey-6
 ">
       <q-toolbar  >
-        <q-btn
+
+
+        <q-toolbar-title >
+          Qui Demo v1.001
+        </q-toolbar-title>
+    <q-btn
           flat
           dense
           :to="'/storage' "
           round
+          label="Stor"
+          aria-label="Stor"
 
-          aria-label="Menu"
-          icon="menu"
         >
-        
+
         </q-btn>
 
         <q-btn
@@ -20,26 +25,12 @@
           dense
           :to="'/storage/mix' "
           round
+          label="Mix"
+          aria-label="Mix"
 
-          aria-label="Menu"
-          icon="menu"
         >
 
         </q-btn>
-
-        <q-toolbar-title >
-          Storage v1.001
-           <q-btn
-          flat
-          dense
-          round
-
-          label="Stor"
-          @click="leftDrawerOpen = !leftDrawerOpen"
-          aria-label="Menu"
-        />
-        </q-toolbar-title>
-
         <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
     </q-header>
