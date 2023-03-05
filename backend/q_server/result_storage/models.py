@@ -21,7 +21,7 @@ class Result(models.Model):
 
 
     def get_absolute_points(self):
-        return self.percent * math.sqrt(self.sum)/self.day_count
+        return self.percent + math.sqrt(self.in_candle)/1000
 
 class MixResult(models.Model):
 
