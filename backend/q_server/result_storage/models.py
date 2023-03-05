@@ -13,7 +13,7 @@ class Result(models.Model):
     sum = models.FloatField()
     percent = models.FloatField()
     in_candle = models.FloatField()
-    settings = models.CharField(max_length=500)
+    settings = models.CharField(max_length=900)
     date_added = models.DateTimeField(auto_now_add=True)
     day_count = models.FloatField()
     config = models.JSONField(max_length=1000, blank=True, )
