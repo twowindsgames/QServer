@@ -12,9 +12,11 @@
         />
       <q-list  v-for="result in results" v-bind:key="result.id" >
       <q-item clickable    >
-     <b >{{result.get_absolute_points}}:  {{result.percent}}%  {{result.sum}} SET: {{result.settings}}</b>
-        <b> {{result.config1}},  {{result.config2}},  {{result.config3}}</b>
-      <em> {{result.day_count}} </em >
+
+        <b>{{result.get_absolute_points}}:  {{result.percent}}%  {{result.sum}} SET: {{result.settings}}</b>
+        <em> ds: {{result.day_count}} </em >
+        <b> id:{{result.config1}},  {{result.config2}},  {{result.config3}}</b>
+
 
       </q-item>
     </q-list>
