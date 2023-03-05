@@ -13,7 +13,7 @@ from .serializers import *
 class ResultsListView(APIView):
     def get(self, request):
         #results_data = Result.objects.all()[0:100]
-        results_data = Result.objects.order_by(F('percent') * math.sqrt(F('sum')) / F('day_count')).reverse()
+        results_data = Result.objects.order_by(F('get_absolute_points')).reverse()
         results_data = results_data[ 0:100 ]
         serializer = ResultsSerializer(results_data,  many=True)
         return Response(serializer.data)
