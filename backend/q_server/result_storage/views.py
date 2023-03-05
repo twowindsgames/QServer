@@ -54,7 +54,7 @@ class MixResultsListView(APIView):
         return save_data(serialize_data)
 
     def delete( self, request ):
-        results_data = Result.objects.all()
+        results_data = MixResultsSerializer.objects.all()
         results_data.delete()
         return Response("all delete")
 
