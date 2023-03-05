@@ -6,23 +6,25 @@
         <q-btn
           flat
           dense
+          :to="'/storage' "
           round
-          @click="leftDrawerOpen = !leftDrawerOpen"
+
           aria-label="Menu"
           icon="menu"
         >
-          <router-link top side :to="'/storage' " style="flex: max-content"/>
+          <router-link top side  style="flex: max-content"/>
         </q-btn>
 
         <q-btn
           flat
           dense
+          :to="'/storage/mix' "
           round
-          @click="leftDrawerOpen = !leftDrawerOpen"
+          
           aria-label="Menu"
           icon="menu"
         >
-          <router-link top side :to="'/storage/mix' " style="flex: max-content"/>
+
         </q-btn>
 
         <q-toolbar-title >
