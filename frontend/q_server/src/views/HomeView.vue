@@ -13,6 +13,7 @@
       <q-list  v-for="result in results" v-bind:key="result.id" >
       <q-item clickable    >
      <b >{{result.get_absolute_points}}:  {{result.percent}}%  {{result.sum}} SET:</b> {{result.settings}}
+      <em> {{result.day_count}} </em >
          <q-btn
           flat
           dense

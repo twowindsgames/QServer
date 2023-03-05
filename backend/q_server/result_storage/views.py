@@ -1,3 +1,5 @@
+import math
+
 from django.http import Http404
 from django.shortcuts import render
 from rest_framework.parsers import JSONParser
@@ -10,9 +12,9 @@ from .serializers import *
 
 class ResultsListView(APIView):
     def get(self, request):
-        results_data = Result.objects.all()[0:100]
-        #results_data = Result.objects.order_by(F('sum') * F('percent')).reverse()
-        #results_data =results_data[0:100]
+        #results_data = Result.objects.all()[0:100]
+        results_data = Result.objects.order_by(F('percent') * math.sqrt(F('sum')) / F('day_count')).reverse()
+        results_data = results_data[ 0:100 ]
         serializer = ResultsSerializer(results_data,  many=True)
         return Response(serializer.data)
 
@@ -37,6 +39,22 @@ class ResultsDetailView(APIView):
         except Result.DoesNotExist:
             raise Http404
 
+class MixResultsListView(APIView):
+    def get(self, request):
+        results_data = MixResult.objects.all()[0:100]
+        serializer = MixResultsSerializer(results_data,  many=True)
+        return Response(serializer.data)
+
+    def post( self, request ):
+        print(request)
+        query = JSONParser().parse(request)
+        serialize_data = MixResultsSerializer(data=query)
+        return save_data(serialize_data)
+
+    def delete( self, request ):
+        results_data = Result.objects.all()
+        results_data.delete()
+        return Response("all delete")
 
 def save_data(serialize_data):
     if serialize_data.is_valid():

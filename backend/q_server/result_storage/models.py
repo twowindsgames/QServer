@@ -16,10 +16,29 @@ class Result(models.Model):
     settings = models.CharField(max_length=500)
     date_added = models.DateTimeField(auto_now_add=True)
     day_count = models.FloatField()
-    config = models.JSONField(max_length=1000, blank=True)
+    config = models.JSONField(max_length=1000, blank=True, )
 
-    class Meta:
-        ordering = ('-percent',)
 
-    def get_absolute_points( self ):
-        return self.percent * math.sqrt(self.sum)
+
+    def get_absolute_points(self):
+        return self.percent * math.sqrt(self.sum)/self.day_count
+
+class MixResult(models.Model):
+
+    config1 = models.ForeignKey(Result, related_name='res1', on_delete=models.CASCADE,  blank=True)
+    config2 = models.ForeignKey(Result, related_name='res2', on_delete=models.CASCADE,  blank=True)
+    config3 = models.ForeignKey(Result, related_name='res3', on_delete=models.CASCADE,  blank=True)
+
+    sum = models.FloatField()
+    percent = models.FloatField()
+    in_candle = models.FloatField()
+    settings = models.CharField(max_length=500)
+    date_added = models.DateTimeField(auto_now_add=True)
+    day_count = models.FloatField()
+
+    def get_absolute_points(self):
+        return self.percent * math.sqrt(self.sum)/self.day_count
+
+
+
+
