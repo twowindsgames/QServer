@@ -49,8 +49,8 @@ mounted() {
       axios
           .get('/api/storage/results')
           .then(response => {
-            this.results = response.data.sort((a, b) => { return b.get_absolute_points - a.get_absolute_points;});
-
+           // this.results = response.data.sort((a, b) => { return b.get_absolute_points - a.get_absolute_points;});
+            this.results= response.data
           })
           .catch(error => {
             console.log(error);
