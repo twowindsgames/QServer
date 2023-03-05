@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from "@/views/HomeView";
+import HomeView1 from "@/views/HomeView1";
 
 
 
@@ -9,6 +10,13 @@ const routes = [
     name: 'HomeView',
     components: {
       default: HomeView,
+      }
+    },
+     {
+    path: '/storage/mix',
+    name: 'HomeView1',
+    components: {
+      default: HomeView1,
       }
     },
     {
