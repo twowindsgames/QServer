@@ -12,7 +12,7 @@
           aria-label="Menu"
           icon="menu"
         >
-          <router-link top side  style="flex: max-content"/>
+        
         </q-btn>
 
         <q-btn
@@ -20,7 +20,7 @@
           dense
           :to="'/storage/mix' "
           round
-          
+
           aria-label="Menu"
           icon="menu"
         >
