@@ -21,7 +21,7 @@ class Result(models.Model):
 
 
     def get_absolute_points(self):
-        return self.percent + self.in_candle/300/self.day_count
+        return self.percent + self.day_count*0.01 + math.sqrt(self.sum)/30/self.day_count
 
 class MixResult(models.Model):
 
@@ -37,7 +37,7 @@ class MixResult(models.Model):
     day_count = models.FloatField()
 
     def get_absolute_points(self):
-        return self.percent + self.sum/300/self.day_count
+        return self.percent + self.day_count*0.01 + math.sqrt(self.sum)/30/self.day_count
 
 
 
