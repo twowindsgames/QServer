@@ -19,7 +19,7 @@ class Result(models.Model):
     config = models.JSONField(max_length=1000, blank=True, )
 
     def get_absolute_points( self ):
-        return (1 + self.day_count*self.day_count / 100) * self.sum / self.day_count
+        return (1 + math.sqrt(self.day_count)/100) * self.sum / self.day_count
 
 
 class MixResult(models.Model):
@@ -35,4 +35,4 @@ class MixResult(models.Model):
     day_count = models.FloatField()
 
     def get_absolute_points( self ):
-        return (1 + self.day_count*self.day_count / 100) * self.sum / self.day_count
+        return (1 + math.sqrt(self.day_count)/100) * self.sum / self.day_count
