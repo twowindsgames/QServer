@@ -12,7 +12,7 @@
         />
       <q-list  v-for="result in results" v-bind:key="result.id" >
       <q-item clickable    >
-     <b >{{result.get_absolute_points}}:  {{result.percent}}%  {{result.sum}} SET:</b> {{result.settings}} dt {{result.date_added}}
+     <b >{{result.get_absolute_points}}:  {{result.percent}}%  {{result.sum}} id: {{result.id}} SET:</b> {{result.settings}} dt {{result.date_added}}
       <em> {{result.day_count}} </em > <em> // {{result.date_added}} </em >
          <q-btn
           flat
