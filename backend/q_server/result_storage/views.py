@@ -15,8 +15,8 @@ from django.db.models.functions import Sqrt
 class ResultsListView(APIView):
     def get(self, request):
 
-        results_data = Result.objects.order_by((1+F('day_count')/60 + F('in_candle')/F('day_count')/100)*F('sum') / F('day_count')).reverse()
-        #results_data = Result.objects.order_by(F('date_added')).reverse()
+        #results_data = Result.objects.order_by((1+F('day_count')/60 + F('in_candle')/F('day_count')/100)*F('sum') / F('day_count')).reverse()
+        results_data = Result.objects.order_by(F('date_added')).reverse()
         results_data = results_data[ 0:100 ]
         serializer = ResultsSerializer(results_data,  many=True)
         return Response(serializer.data)
