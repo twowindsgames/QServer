@@ -18,8 +18,8 @@ class ResultsListView(APIView):
         #results_data = Result.objects.order_by((1+F('day_count')/60 + F('in_candle')/F('day_count')/100)*F('sum') / F('day_count')).reverse()
         #results_data = Result.objects.order_by(F('date_added')).reverse()
         #results_data = Result.objects.order_by(F('percent_mult') * Sqrt(F('sum'))).reverse()
-        start_date = '2020-05-21'
-        end_date = '2024-05-24'
+        start_date = '2023-03-13'
+        end_date = '2023-03-13'
         results_data = Result.objects.order_by(F('percent') * Sqrt(F('sum'))).filter(date_added__range = [ start_date, end_date ]).reverse()
 
 
