@@ -19,10 +19,10 @@ class ResultsListView(APIView):
         #results_data = Result.objects.order_by(F('date_added')).reverse()
         #results_data = Result.objects.order_by(F('percent_mult') * Sqrt(F('sum'))).reverse()
         start_date = '2020-05-21'
-        end_date = '2021-05-24'
+        end_date = '2024-05-24'
         results_data = Result.objects.order_by(F('percent') * Sqrt(F('sum'))).filter(date_added__range = [ start_date, end_date ]).reverse()
 
-        
+
         results_data = results_data[ 0:100 ]
 
         serializer = ResultsSerializer(results_data,  many=True)
