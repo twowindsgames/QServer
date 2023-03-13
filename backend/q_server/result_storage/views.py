@@ -20,7 +20,7 @@ class ResultsListView(APIView):
         #results_data = Result.objects.order_by(F('percent_mult') * Sqrt(F('sum'))).reverse()
         results_data = Result.objects.order_by(F('percent') * Sqrt(F('sum'))).reverse()
         results_data = results_data[ 0:100 ]
-        results_data = results_data.filter(date_added = date.today())
+
         serializer = ResultsSerializer(results_data,  many=True)
         return Response(serializer.data)
 
