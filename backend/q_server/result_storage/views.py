@@ -18,12 +18,12 @@ class ResultsListView(APIView):
         #results_data = Result.objects.order_by((1+F('day_count')/60 + F('in_candle')/F('day_count')/100)*F('sum') / F('day_count')).reverse()
         #results_data = Result.objects.order_by(F('date_added')).reverse()
         #results_data = Result.objects.order_by(F('percent_mult') * Sqrt(F('sum'))).reverse()
-        #start_date = '2023-01-12'
-        #end_date = '2023-03-12'
-        results_data = Result.objects.order_by(F('percent_mult') * Sqrt(F('sum'))).reverse()
+        start_date = '2023-01-12'
+        end_date = '2023-03-13'
+        results_data = Result.objects.order_by(F('percent') * Sqrt(F('sum'))).filter(date_added__range = [ start_date, end_date ]).reverse()
 
 
-        results_data = results_data[ 0:100 ]
+        #results_data = results_data[ 0:100 ]
 
         serializer = ResultsSerializer(results_data,  many=True)
         return Response(serializer.data)
@@ -61,7 +61,7 @@ class MixResultsListView(APIView):
     def get(self, request):
         #results_data = MixResult.objects.order_by(F('percent') + F('in_candle') / 300/F('day_count') ).reverse()
         #results_data = MixResult.order_by(F('percent_mult') * Sqrt(F('sum'))).reverse()
-        results_data = MixResult.order_by(F('percent_mult') * Sqrt(F('sum'))).reverse()
+        results_data = MixResult.order_by(F('percent') * Sqrt(F('sum'))).reverse()
         results_data = results_data[ 0:100 ]
         serializer = MixResultsSerializer(results_data,  many=True)
         return Response(serializer.data)
