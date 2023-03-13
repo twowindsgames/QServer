@@ -20,6 +20,7 @@ class ResultsListView(APIView):
         #results_data = Result.objects.order_by(F('percent_mult') * Sqrt(F('sum'))).reverse()
         results_data = Result.objects.order_by(F('percent') * Sqrt(F('sum'))).reverse()
         results_data = results_data[ 0:100 ]
+        results_data = results_data.filter(date.today())
         serializer = ResultsSerializer(results_data,  many=True)
         return Response(serializer.data)
 
@@ -60,6 +61,7 @@ class MixResultsListView(APIView):
         return save_data(serialize_data)
 
     def delete( self, request ):
+        #results_data = MixResult.objects.all()
         results_data = MixResult.objects.all()
         results_data.delete()
         return Response("all delete")
