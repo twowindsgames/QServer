@@ -17,6 +17,7 @@ class Result(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
     day_count = models.FloatField()
     config = models.JSONField(max_length=1000, blank=True, )
+    percent_mult = models.FloatField()
 
     def get_absolute_points( self ):
         return (1+self.day_count/60 + self.in_candle/self.day_count/100) * self.sum/self.day_count
@@ -29,6 +30,7 @@ class MixResult(models.Model):
 
     sum = models.FloatField()
     percent = models.FloatField()
+    percent_mult = models.FloatField()
     in_candle = models.FloatField()
     settings = models.CharField(max_length=500)
     date_added = models.DateTimeField(auto_now_add=True)
