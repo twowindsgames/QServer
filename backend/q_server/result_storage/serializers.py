@@ -16,7 +16,9 @@ class ResultsSerializer(serializers.ModelSerializer):
             "date_added",
             "config",
             "get_absolute_points",
-            "percent_mult"
+            "percent_mult",
+            "method",
+            "version",
         )
 
 class MixResultsSerializer(serializers.ModelSerializer):
@@ -35,4 +37,5 @@ class MixResultsSerializer(serializers.ModelSerializer):
             "date_added",
             "get_absolute_points",
             "percent_mult",
+            "method",
         )
